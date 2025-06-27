@@ -20,9 +20,9 @@ const main = async () => {
     adapterProvider.server.post(
         '/v1/messages',
         handleCtx(async (bot, req, res) => {
-            const { number, message, urlMedia } = req.body
-            await bot.sendMessage(number, message, { media: urlMedia ?? null })
-            return res.end('sended')
+            const { number, message, media } = req.body;
+            await bot.sendMessage(number, message, { media });
+            return res.end("send");
         })
     )
 
